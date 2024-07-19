@@ -205,7 +205,7 @@ local theme = lush(function(injected_functions)
     SpellCap       { sp = palette.yl0, undercurl = true }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     SpellLocal     { sp = palette.gr0, undercurl = true }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     SpellRare      { sp = palette.sr0, undercurl = true }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-    StatusLine     { bg = palette.bg2 }, -- Status line of current window
+    StatusLine     { bg = palette.bg1 }, -- Status line of current window
     -- StatusLineNC   { }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     -- TabLine        { }, -- Tab pages line, not active tab page label
     -- TabLineFill    { }, -- Tab pages line, where there are no labels
@@ -216,6 +216,7 @@ local theme = lush(function(injected_functions)
     WarningMsg     { fg = palette.yl0 }, -- Warning messages
     -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- Winseparator   { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
+    Nvimseparator   { fg = palette.sa0 }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     -- WildMenu       { }, -- Current match in 'wildmenu' completion
     -- WinBar         { }, -- Window bar of current window
     -- WinBarNC       { }, -- Window bar of not-current windows
@@ -296,11 +297,11 @@ local theme = lush(function(injected_functions)
     DiagnosticVirtualTextInfo  { DiagnosticInfo } , -- Used for "Info" diagnostic virtual text.
     DiagnosticVirtualTextHint  { DiagnosticHint } , -- Used for "Hint" diagnostic virtual text.
     DiagnosticVirtualTextOk    { DiagnosticOk } , -- Used for "Ok" diagnostic virtual text.
-    -- DiagnosticUnderlineError   { } , -- Used to underline "Error" diagnostics.
-    -- DiagnosticUnderlineWarn    { } , -- Used to underline "Warn" diagnostics.
-    -- DiagnosticUnderlineInfo    { } , -- Used to underline "Info" diagnostics.
-    -- DiagnosticUnderlineHint    { } , -- Used to underline "Hint" diagnostics.
-    -- DiagnosticUnderlineOk      { } , -- Used to underline "Ok" diagnostics.
+    DiagnosticUnderlineError   { sp = palette.er0, undercurl = true } , -- Used to underline "Error" diagnostics.
+    DiagnosticUnderlineWarn    { sp = palette.yl0, undercurl = true } , -- Used to underline "Warn" diagnostics.
+    DiagnosticUnderlineInfo    { sp = palette.gb0, undercurl = true } , -- Used to underline "Info" diagnostics.
+    DiagnosticUnderlineHint    { sp = palette.pi0, undercurl = true } , -- Used to underline "Hint" diagnostics.
+    DiagnosticUnderlineOk      { sp = palette.gr0, undercurl = true } , -- Used to underline "Ok" diagnostics.
     -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
     -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
     -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.
@@ -330,6 +331,10 @@ local theme = lush(function(injected_functions)
     RainbowDelimiterOrange  { fg = palette.sr0 },
     RainbowDelimiterViolet  { fg = palette.sr1 },
     RainbowDelimiterCyan    { fg = palette.fg1 },
+
+    TelescopeSelection         { bg = palette.bg1 },
+    TelescopeTitle             { fg = palette.sa0, bold = true },
+    TelescopeMatching          { fg = palette.sr0, },
 
     -- Tree-Sitter syntax groups.
     --
