@@ -50,8 +50,8 @@ local hsluv = lush.hsluv
 local dark = {
     bg0 = hsluv(310, 6, 8),
     bg1 = hsluv(310, 6, 18),
-    bg2 = hsluv(310, 6, 34),
-    bg3 = hsluv(310, 10, 50),
+    bg2 = hsluv(310, 6, 36),
+    bg3 = hsluv(310, 10, 54),
 
     fg0 = hsluv(0, 25, 80),
     fg1 = hsluv(0, 25, 70),
@@ -88,6 +88,43 @@ local dark = {
 }
 
 local light = {
+    bg0 = hsluv(310, 20, 90),
+    bg1 = hsluv(310, 20, 80),
+    bg2 = hsluv(310, 20, 60),
+    bg3 = hsluv(310, 20, 50),
+
+    fg0 = hsluv(0, 25, 35),
+    fg1 = hsluv(0, 25, 40),
+    fg8 = hsluv(0, 15, 45),
+    fg9 = hsluv(0, 10, 50),
+
+    er0 = hsluv(7, 55, 30),
+    er9 = hsluv(7, 55, 60),
+
+    yl0 = hsluv(40, 40, 30),
+    yl8 = hsluv(40, 40, 40),
+    yl9 = hsluv(40, 40, 60),
+
+    sr0 = hsluv(300, 40, 30),
+    sr1 = hsluv(300, 35, 40),
+    sr9 = hsluv(300, 35, 50),
+
+    gr0 = hsluv(150, 35, 30),
+    gr9 = hsluv(150, 35, 50),
+
+    gb0 = hsluv(260, 35, 30),
+    gb1 = hsluv(260, 35, 40),
+    gb9 = hsluv(260, 35, 50),
+
+    gp0 = hsluv(270, 50, 30),
+    gp1 = hsluv(270, 40, 40),
+    gp9 = hsluv(270, 35, 50),
+
+    sa0 = hsluv(340, 35, 30),
+    sa1 = hsluv(340, 35, 50),
+
+    pi0 = hsluv(310, 15, 30),
+    pi1 = hsluv(310, 15, 50),
 }
 
 local palette = dark
@@ -132,14 +169,14 @@ local theme = lush(function(injected_functions)
     ErrorMsg       { fg = palette.er0 }, -- Error messages on the command line
     VertSplit      { fg = palette.fg1 }, -- Column separating vertically split windows
     Folded         { bg = palette.bg1 }, -- Line used for closed folds
-    LineNr         { bg = palette.bg1, fg = palette.fg0 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr         { fg = palette.fg0 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     LineNrAbove    { LineNr }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     LineNrBelow    { LineNr }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     FoldColumn     { LineNr }, -- 'foldcolumn'
     SignColumn     { LineNr }, -- Column where |signs| are displayed
     IncSearch      { CurSearch }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute     { bg = palette.sr9, fg = palette.sr0 }, -- |:substitute| replacement text highlighting
-    CursorLineNr   { bg = palette.bg1, fg = palette.fg0, italic = true, bold = true }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLineNr   { fg = palette.fg0, italic = true, bold = true }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
     -- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
