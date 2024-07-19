@@ -46,16 +46,49 @@ local lush = require('lush')
 local hsluv = lush.hsluv
 
 local dark = {
+    bg0 = hsluv(310, 5, 8),
+    bg8 = hsluv(310, 5, 12),
+    bg9 = hsluv(310, 5, 40),
 
+    fg0 = hsluv(0, 55, 90),
+    fg1 = hsluv(0, 55, 75),
+    fg9 = hsluv(0, 25, 55),
+
+    er0 = hsluv(7, 65, 65),
+    er9 = hsluv(7, 35, 20),
+
+    yl0 = hsluv(95, 55, 75),
+    yl8 = hsluv(95, 35, 30),
+    yl9 = hsluv(95, 35, 20),
+
+    sr0 = hsluv(300, 55, 75),
+    sr1 = hsluv(300, 55, 70),
+    sr9 = hsluv(300, 35, 20),
+
+    gr0 = hsluv(150, 35, 75),
+    gr9 = hsluv(150, 35, 20),
+
+    gb0 = hsluv(260, 35, 70),
+    gb1 = hsluv(260, 35, 60),
+    gb9 = hsluv(260, 35, 20),
+
+    gp0 = hsluv(270, 50, 70),
+    gp1 = hsluv(270, 50, 60),
+    gp9 = hsluv(270, 50, 20),
+
+    sa0 = hsluv(340, 55, 65),
+
+    pi0 = hsluv(310, 65, 80),
+    pi1 = hsluv(310, 65, 75),
+    pi2 = hsluv(310, 65, 70),
 }
 
 local light = {
-
 }
 
 local palette = dark
 
-if (vim.o.background == "light") then
+if vim.o.background == "light" then
     palette = light
 end
 
@@ -75,33 +108,34 @@ local theme = lush(function(injected_functions)
     --
     -- See :h highlight-groups
     --
-    -- ColorColumn    { }, -- Columns set with 'colorcolumn'
-    -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
+    Normal         { bg = palette.bg0, fg = palette.fg0 }, -- Normal text
+    ColorColumn    { bg = palette.bg8 }, -- Columns set with 'colorcolumn'
+    Conceal        { bg = palette.bg0, fg = palette.fg0 }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     -- Cursor         { }, -- Character under the cursor
-    -- CurSearch      { }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
+    CurSearch      { bg = palette.sr0, fg = palette.bg0 }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     -- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
-    -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    -- CursorLine     { }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-    -- Directory      { }, -- Directory names (and other special names in listings)
-    -- DiffAdd        { }, -- Diff mode: Added line |diff.txt|
-    -- DiffChange     { }, -- Diff mode: Changed line |diff.txt|
-    -- DiffDelete     { }, -- Diff mode: Deleted line |diff.txt|
-    -- DiffText       { }, -- Diff mode: Changed text within a changed line |diff.txt|
+    CursorColumn   { bg = palette.bg8 }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorLine     { CursorColumn }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    Directory      { gui = "bold" }, -- Directory names (and other special names in listings)
+    DiffAdd        { bg = palette.gr9 }, -- Diff mode: Added line |diff.txt|
+    DiffChange     { bg = palette.yl9 }, -- Diff mode: Changed line |diff.txt|
+    DiffDelete     { bg = palette.er9 }, -- Diff mode: Deleted line |diff.txt|
+    DiffText       { bg = palette.yl8 }, -- Diff mode: Changed text within a changed line |diff.txt|
     -- EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor     { }, -- Cursor in a focused terminal
     -- TermCursorNC   { }, -- Cursor in an unfocused terminal
-    -- ErrorMsg       { }, -- Error messages on the command line
+    ErrorMsg       { fg = palette.er0 }, -- Error messages on the command line
     -- VertSplit      { }, -- Column separating vertically split windows
     -- Folded         { }, -- Line used for closed folds
-    -- FoldColumn     { }, -- 'foldcolumn'
-    -- SignColumn     { }, -- Column where |signs| are displayed
-    -- IncSearch      { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    -- Substitute     { }, -- |:substitute| replacement text highlighting
-    -- LineNr         { }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr         { bg = palette.bg8, fg = palette.fg0 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     -- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
-    -- CursorLineNr   { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    FoldColumn     { LineNr }, -- 'foldcolumn'
+    SignColumn     { LineNr }, -- Column where |signs| are displayed
+    IncSearch      { CurSearch }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+    Substitute     { bg = palette.sr9, fg = palette.sr0 }, -- |:substitute| replacement text highlighting
+    CursorLineNr   { LineNr }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
     -- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -110,7 +144,6 @@ local theme = lush(function(injected_functions)
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg        { }, -- |more-prompt|
     -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    -- Normal         { }, -- Normal text
     -- NormalFloat    { }, -- Normal text in floating windows.
     -- FloatBorder    { }, -- Border of floating windows.
     -- FloatTitle     { }, -- Title of floating windows.
@@ -123,14 +156,14 @@ local theme = lush(function(injected_functions)
     -- PmenuExtraSel  { }, -- Popup menu: Selected item "extra text"
     -- PmenuSbar      { }, -- Popup menu: Scrollbar.
     -- PmenuThumb     { }, -- Popup menu: Thumb of the scrollbar.
-    -- Question       { }, -- |hit-enter| prompt and yes/no questions
-    -- QuickFixLine   { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    -- Search         { }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+    Question       { fg = palette.fg0 }, -- |hit-enter| prompt and yes/no questions
+    QuickFixLine   { Question }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    Search         { bg = palette.sr1, fg = palette.bg0 }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
     -- SpecialKey     { }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
-    -- SpellBad       { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-    -- SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-    -- SpellLocal     { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    -- SpellRare      { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
+    SpellBad       { sp = palette.er0, gui = "undercurl" }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+    SpellCap       { sp = palette.yl0, gui = "undercurl" }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+    SpellLocal     { sp = palette.gr0, gui = "undercurl" }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+    SpellRare      { sp = palette.sr0, gui = "undercurl" }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
     -- StatusLine     { }, -- Status line of current window
     -- StatusLineNC   { }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     -- TabLine        { }, -- Tab pages line, not active tab page label
@@ -154,25 +187,25 @@ local theme = lush(function(injected_functions)
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    -- Comment        { }, -- Any comment
+    Comment        { fg = palette.bg9, gui = "italic" }, -- Any comment
 
-    -- Constant       { }, -- (*) Any constant
-    -- String         { }, --   A string constant: "this is a string"
-    -- Character      { }, --   A character constant: 'c', '\n'
-    -- Number         { }, --   A number constant: 234, 0xff
-    -- Boolean        { }, --   A boolean constant: TRUE, false
-    -- Float          { }, --   A floating point constant: 2.3e10
+    Constant       { fg = palette.gp1 }, -- (*) Any constant
+    String         { fg = palette.gb0, gui = "italic" }, --   A string constant: "this is a string"
+    Character      { fg = palette.gb1, gui = "italic" }, --   A character constant: 'c', '\n'
+    Number         { fg = palette.gp0 }, --   A number constant: 234, 0xff
+    Boolean        { Constant }, --   A boolean constant: TRUE, false
+    Float          { Number }, --   A floating point constant: 2.3e10
 
-    -- Identifier     { }, -- (*) Any variable name
-    -- Function       { }, --   Function name (also: methods for classes)
+    Identifier     { Normal }, -- (*) Any variable name
+    Function       { fg = palette.fg9 }, --   Function name (also: methods for classes)
 
-    -- Statement      { }, -- (*) Any statement
-    -- Conditional    { }, --   if, then, else, endif, switch, etc.
-    -- Repeat         { }, --   for, do, while, etc.
-    -- Label          { }, --   case, default, etc.
-    -- Operator       { }, --   "sizeof", "+", "*", etc.
-    -- Keyword        { }, --   any other keyword
-    -- Exception      { }, --   try, catch, throw
+    Statement      { Normal }, -- (*) Any statement
+    Repeat         { fg = palette.pi0 }, --   for, do, while, etc.
+    Conditional    { fg = palette.pi1 }, --   if, then, else, endif, switch, etc.
+    Label          { fg = palette.pi2 }, --   case, default, etc.
+    Operator       { Repeat }, --   "sizeof", "+", "*", etc.
+    Keyword        { Conditional }, --   any other keyword
+    Exception      { Label }, --   try, catch, throw
 
     -- PreProc        { }, -- (*) Generic Preprocessor
     -- Include        { }, --   Preprocessor #include
@@ -180,21 +213,21 @@ local theme = lush(function(injected_functions)
     -- Macro          { }, --   Same as Define
     -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 
-    -- Type           { }, -- (*) int, long, char, etc.
-    -- StorageClass   { }, --   static, register, volatile, etc.
-    -- Structure      { }, --   struct, union, enum, etc.
-    -- Typedef        { }, --   A typedef
+    Type           { fg = palette.sa0 }, -- (*) int, long, char, etc.
+    StorageClass   { Type }, --   static, register, volatile, etc.
+    Structure      { Type }, --   struct, union, enum, etc.
+    Typedef        { Type }, --   A typedef
 
-    -- Special        { }, -- (*) Any special symbol
+    Special        { Constant }, -- (*) Any special symbol
     -- SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
     -- Delimiter      { }, --   Character that needs attention
     -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
     -- Debug          { }, --   Debugging statements
 
-    -- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
+    Underlined     { gui = "underline" }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
-    -- Error          { }, -- Any erroneous construct
+    Error          { ErrorMsg }, -- Any erroneous construct
     -- Todo           { }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     -- These groups are for the native LSP client and diagnostic system. Some
@@ -212,12 +245,12 @@ local theme = lush(function(injected_functions)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError            { ErrorMsg } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticInfo             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticOk               { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
+    DiagnosticVirtualTextError { Error } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
     -- DiagnosticVirtualTextHint  { } , -- Used for "Hint" diagnostic virtual text.
@@ -291,8 +324,8 @@ local theme = lush(function(injected_functions)
     -- sym"@keyword"           { }, -- Keyword
     -- sym"@exception"         { }, -- Exception
     -- sym"@variable"          { }, -- Identifier
-    -- sym"@type"              { }, -- Type
-    -- sym"@type.definition"   { }, -- Typedef
+    sym"@type"              { Type }, -- Type
+    sym"@type.definition"   { Typedef }, -- Typedef
     -- sym"@storageclass"      { }, -- StorageClass
     -- sym"@structure"         { }, -- Structure
     -- sym"@namespace"         { }, -- Identifier
