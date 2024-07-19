@@ -55,14 +55,15 @@ local dark = {
 
     fg0 = hsluv(0, 25, 80),
     fg1 = hsluv(0, 25, 70),
-    fg9 = hsluv(0, 20, 55),
+    fg8 = hsluv(0, 15, 65),
+    fg9 = hsluv(0, 10, 55),
 
     er0 = hsluv(7, 55, 50),
     er9 = hsluv(7, 55, 20),
 
-    yl0 = hsluv(70, 55, 60),
-    yl8 = hsluv(70, 35, 30),
-    yl9 = hsluv(70, 35, 20),
+    yl0 = hsluv(60, 55, 60),
+    yl8 = hsluv(60, 35, 30),
+    yl9 = hsluv(60, 35, 20),
 
     sr0 = hsluv(300, 45, 65),
     sr1 = hsluv(300, 35, 60),
@@ -205,14 +206,14 @@ local theme = lush(function(injected_functions)
     Statement      { fg = palette.pi1 }, -- (*) Any statement
     Repeat         { fg = palette.pi1 }, --   for, do, while, etc.
     Conditional    { fg = palette.pi0 }, --   if, then, else, endif, switch, etc.
-    Label          { fg = palette.pi1 }, --   case, default, etc.
+    Label          { fg = palette.pi1, bold = true }, --   case, default, etc.
     Operator       { Repeat }, --   "sizeof", "+", "*", etc.
     Keyword        { Conditional }, --   any other keyword
     Exception      { Label }, --   try, catch, throw
 
-    PreProc        { fg = palette.pi1 }, -- (*) Generic Preprocessor
+    PreProc        { fg = palette.pi0, bold = true }, -- (*) Generic Preprocessor
     Include        { PreProc }, --   Preprocessor #include
-    Define         { fg = palette.pi0 }, --   Preprocessor #define
+    Define         { fg = palette.pi1 }, --   Preprocessor #define
     Macro          { PreProc }, --   Same as Define
     PreCondit      { PreProc }, --   Preprocessor #if, #else, #endif, etc.
 
@@ -224,7 +225,7 @@ local theme = lush(function(injected_functions)
     Special        { Constant }, -- (*) Any special symbol
     SpecialChar    { Constant }, --   Special character in a constant
     Tag            { Constant }, --   You can use CTRL-] on this
-    Delimiter      { Constant }, --   Character that needs attention
+    Delimiter      { fg = palette.fg8 }, --   Character that needs attention
     SpecialComment { String }, --   Special things inside a comment (e.g. '\n')
     Debug          { String }, --   Debugging statements
 
@@ -277,6 +278,13 @@ local theme = lush(function(injected_functions)
     GitSignsAdd        { bg = palette.bg1, fg = palette.gr0 },
     GitSignsChange     { bg = palette.bg1, fg = palette.yl0 },
     GitSignsDelete     { bg = palette.bg1, fg = palette.er0 },
+
+    TodoBgNOTE         { fg = palette.pi0, bold = true },
+    TodoBgTODO         { fg = palette.sa0, bold = true },
+    TodoBgPERF         { fg = palette.gr0, bold = true },
+    TodoBgHACK         { fg = palette.gb0, bold = true },
+    TodoBgWARN         { fg = palette.er0, bold = true },
+    TodoBgFIX          { fg = palette.yl0, bold = true },
 
     -- Tree-Sitter syntax groups.
     --
