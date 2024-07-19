@@ -61,12 +61,12 @@ local dark = {
     er0 = hsluv(7, 55, 50),
     er9 = hsluv(7, 55, 20),
 
-    yl0 = hsluv(60, 55, 60),
-    yl8 = hsluv(60, 35, 30),
-    yl9 = hsluv(60, 35, 20),
+    yl0 = hsluv(40, 40, 60),
+    yl8 = hsluv(40, 40, 30),
+    yl9 = hsluv(40, 40, 20),
 
-    sr0 = hsluv(300, 45, 65),
-    sr1 = hsluv(300, 35, 60),
+    sr0 = hsluv(300, 40, 65),
+    sr1 = hsluv(300, 35, 55),
     sr9 = hsluv(300, 35, 20),
 
     gr0 = hsluv(150, 35, 60),
@@ -275,16 +275,24 @@ local theme = lush(function(injected_functions)
     -- DiagnosticSignHint         { } , -- Used for "Hint" signs in sign column.
     -- DiagnosticSignOk           { } , -- Used for "Ok" signs in sign column.
 
-    GitSignsAdd        { bg = palette.bg1, fg = palette.gr0 },
-    GitSignsChange     { bg = palette.bg1, fg = palette.yl0 },
-    GitSignsDelete     { bg = palette.bg1, fg = palette.er0 },
+    GitSignsAdd    { bg = palette.bg1, fg = palette.gr0 },
+    GitSignsChange { bg = palette.bg1, fg = palette.yl0 },
+    GitSignsDelete { bg = palette.bg1, fg = palette.er0 },
 
-    TodoBgNOTE         { fg = palette.pi0, bold = true },
-    TodoBgTODO         { fg = palette.sa0, bold = true },
-    TodoBgPERF         { fg = palette.gr0, bold = true },
-    TodoBgHACK         { fg = palette.gb0, bold = true },
-    TodoBgWARN         { fg = palette.er0, bold = true },
-    TodoBgFIX          { fg = palette.yl0, bold = true },
+    TodoBgNOTE { fg = palette.pi0, bold = true },
+    TodoBgTODO { fg = palette.sa0, bold = true },
+    TodoBgPERF { fg = palette.gr0, bold = true },
+    TodoBgHACK { fg = palette.gb0, bold = true },
+    TodoBgWARN { fg = palette.er0, bold = true },
+    TodoBgFIX  { fg = palette.yl0, bold = true },
+
+    RainbowDelimiterRed     { fg = palette.fg9 },
+    RainbowDelimiterYellow  { fg = palette.fg8 },
+    RainbowDelimiterBlue    { fg = palette.sa0 },
+    RainbowDelimiterGreen   { fg = palette.pi0 },
+    RainbowDelimiterOrange  { fg = palette.sr0 },
+    RainbowDelimiterViolet  { fg = palette.sr1 },
+    RainbowDelimiterCyan    { fg = palette.fg1 },
 
     -- Tree-Sitter syntax groups.
     --
