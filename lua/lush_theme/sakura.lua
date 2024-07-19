@@ -51,7 +51,8 @@ local dark = {
     bg0 = hsluv(310, 6, 8),
     bg1 = hsluv(310, 6, 18),
     bg2 = hsluv(310, 6, 36),
-    bg3 = hsluv(310, 10, 54),
+
+    vs0 = hsluv(310, 12, 20),
 
     fg0 = hsluv(0, 25, 80),
     fg1 = hsluv(0, 25, 70),
@@ -91,37 +92,38 @@ local light = {
     bg0 = hsluv(310, 20, 90),
     bg1 = hsluv(310, 20, 80),
     bg2 = hsluv(310, 20, 60),
-    bg3 = hsluv(310, 20, 50),
+
+    vs0 = hsluv(310, 15, 75),
 
     fg0 = hsluv(0, 25, 35),
     fg1 = hsluv(0, 25, 40),
     fg8 = hsluv(0, 15, 45),
     fg9 = hsluv(0, 10, 50),
 
-    er0 = hsluv(7, 55, 30),
+    er0 = hsluv(7, 55, 40),
     er9 = hsluv(7, 55, 60),
 
-    yl0 = hsluv(40, 40, 30),
-    yl8 = hsluv(40, 40, 40),
+    yl0 = hsluv(40, 40, 40),
+    yl8 = hsluv(40, 40, 50),
     yl9 = hsluv(40, 40, 60),
 
-    sr0 = hsluv(300, 40, 30),
-    sr1 = hsluv(300, 35, 40),
-    sr9 = hsluv(300, 35, 50),
+    sr0 = hsluv(300, 40, 40),
+    sr1 = hsluv(300, 35, 50),
+    sr9 = hsluv(300, 35, 60),
 
-    gr0 = hsluv(150, 35, 30),
-    gr9 = hsluv(150, 35, 50),
+    gr0 = hsluv(150, 35, 40),
+    gr9 = hsluv(150, 35, 60),
 
-    gb0 = hsluv(260, 35, 30),
-    gb1 = hsluv(260, 35, 40),
-    gb9 = hsluv(260, 35, 50),
+    gb0 = hsluv(260, 35, 40),
+    gb1 = hsluv(260, 35, 50),
+    gb9 = hsluv(260, 35, 60),
 
-    gp0 = hsluv(270, 50, 30),
-    gp1 = hsluv(270, 40, 40),
-    gp9 = hsluv(270, 35, 50),
+    gp0 = hsluv(270, 50, 40),
+    gp1 = hsluv(270, 40, 50),
+    gp9 = hsluv(270, 35, 60),
 
-    sa0 = hsluv(340, 35, 30),
-    sa1 = hsluv(340, 35, 50),
+    sa0 = hsluv(340, 35, 40),
+    sa1 = hsluv(340, 35, 60),
 
     pi0 = hsluv(310, 15, 30),
     pi1 = hsluv(310, 15, 50),
@@ -180,7 +182,7 @@ local theme = lush(function(injected_functions)
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
     -- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    ModeMsg        { fg = palette.pi1 }, -- 'showmode' message (e.g., "-- INSERT -- ")
+    ModeMsg        { fg = palette.pi0 }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea        { ModeMsg }, -- Area for messages and cmdline
     MsgSeparator   { ModeMsg }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg        { ModeMsg }, -- |more-prompt|
@@ -211,7 +213,7 @@ local theme = lush(function(injected_functions)
     -- TabLineFill    { }, -- Tab pages line, where there are no labels
     -- TabLineSel     { }, -- Tab pages line, active tab page label
     Title          { fg = palette.fg0, bold = true }, -- Titles for output from ":set all", ":autocmd" etc.
-    Visual         { bg = palette.bg3 }, -- Visual mode selection
+    Visual         { bg = palette.vs0 }, -- Visual mode selection
     VisualNOS      { Visual }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg     { fg = palette.yl0 }, -- Warning messages
     -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -255,7 +257,7 @@ local theme = lush(function(injected_functions)
     Macro          { PreProc }, --   Same as Define
     PreCondit      { PreProc }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = palette.sa0, italic= true }, -- (*) int, long, char, etc.
+    Type           { fg = palette.sa0, italic= true, bold = true }, -- (*) int, long, char, etc.
     StorageClass   { fg = palette.sa1 }, --   static, register, volatile, etc.
     Structure      { Type }, --   struct, union, enum, etc.
     Typedef        { StorageClass }, --   A typedef
@@ -313,9 +315,10 @@ local theme = lush(function(injected_functions)
     -- DiagnosticSignHint         { } , -- Used for "Hint" signs in sign column.
     -- DiagnosticSignOk           { } , -- Used for "Ok" signs in sign column.
 
-    GitSignsAdd    { bg = palette.bg1, fg = palette.gr0 },
-    GitSignsChange { bg = palette.bg1, fg = palette.yl0 },
-    GitSignsDelete { bg = palette.bg1, fg = palette.er0 },
+    GitSignsAdd          { fg = palette.gr0 },
+    GitSignsChange       { fg = palette.yl0 },
+    GitSignsChangedelete { fg = palette.sr0 },
+    GitSignsDelete       { fg = palette.er0 },
 
     TodoBgNOTE { fg = palette.pi0, bold = true },
     TodoBgTODO { fg = palette.sa0, bold = true },
@@ -335,6 +338,9 @@ local theme = lush(function(injected_functions)
     TelescopeSelection         { bg = palette.bg1 },
     TelescopeTitle             { fg = palette.sa0, bold = true },
     TelescopeMatching          { fg = palette.sr0, },
+
+    IblScope { fg = palette.sa0 },
+    IblIndent { fg = palette.pi1 },
 
     -- Tree-Sitter syntax groups.
     --
