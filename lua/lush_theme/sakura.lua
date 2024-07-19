@@ -45,42 +45,45 @@
 local lush = require('lush')
 local hsluv = lush.hsluv
 
+-- local local
+
 local dark = {
-    bg0 = hsluv(310, 5, 8),
-    bg8 = hsluv(310, 5, 12),
-    bg9 = hsluv(310, 5, 40),
+    bg0 = hsluv(310, 6, 8),
+    bg1 = hsluv(310, 6, 18),
+    bg2 = hsluv(310, 6, 34),
+    bg3 = hsluv(310, 10, 50),
 
-    fg0 = hsluv(0, 55, 90),
-    fg1 = hsluv(0, 55, 75),
-    fg9 = hsluv(0, 25, 55),
+    fg0 = hsluv(0, 25, 80),
+    fg1 = hsluv(0, 25, 70),
+    fg9 = hsluv(0, 20, 55),
 
-    er0 = hsluv(7, 65, 65),
-    er9 = hsluv(7, 35, 20),
+    er0 = hsluv(7, 55, 50),
+    er9 = hsluv(7, 55, 20),
 
-    yl0 = hsluv(95, 55, 75),
-    yl8 = hsluv(95, 35, 30),
-    yl9 = hsluv(95, 35, 20),
+    yl0 = hsluv(70, 55, 60),
+    yl8 = hsluv(70, 35, 30),
+    yl9 = hsluv(70, 35, 20),
 
-    sr0 = hsluv(300, 55, 75),
-    sr1 = hsluv(300, 55, 70),
+    sr0 = hsluv(300, 45, 65),
+    sr1 = hsluv(300, 35, 60),
     sr9 = hsluv(300, 35, 20),
 
-    gr0 = hsluv(150, 35, 75),
+    gr0 = hsluv(150, 35, 60),
     gr9 = hsluv(150, 35, 20),
 
-    gb0 = hsluv(260, 35, 70),
-    gb1 = hsluv(260, 35, 60),
+    gb0 = hsluv(260, 35, 60),
+    gb1 = hsluv(260, 35, 50),
     gb9 = hsluv(260, 35, 20),
 
-    gp0 = hsluv(270, 50, 70),
-    gp1 = hsluv(270, 50, 60),
-    gp9 = hsluv(270, 50, 20),
+    gp0 = hsluv(270, 50, 65),
+    gp1 = hsluv(270, 40, 55),
+    gp9 = hsluv(270, 35, 20),
 
-    sa0 = hsluv(340, 55, 65),
+    sa0 = hsluv(340, 35, 65),
+    sa1 = hsluv(340, 35, 55),
 
-    pi0 = hsluv(310, 65, 80),
-    pi1 = hsluv(310, 65, 75),
-    pi2 = hsluv(310, 65, 70),
+    pi0 = hsluv(310, 15, 60),
+    pi1 = hsluv(310, 15, 45),
 }
 
 local light = {
@@ -109,15 +112,15 @@ local theme = lush(function(injected_functions)
     -- See :h highlight-groups
     --
     Normal         { bg = palette.bg0, fg = palette.fg0 }, -- Normal text
-    ColorColumn    { bg = palette.bg8 }, -- Columns set with 'colorcolumn'
+    ColorColumn    { bg = palette.bg1 }, -- Columns set with 'colorcolumn'
     Conceal        { bg = palette.bg0, fg = palette.fg0 }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-    -- Cursor         { }, -- Character under the cursor
+    Cursor         { bg = palette.fg0, fg = palette.bg0 }, -- Character under the cursor
     CurSearch      { bg = palette.sr0, fg = palette.bg0 }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     -- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
-    CursorColumn   { bg = palette.bg8 }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorColumn   { bg = palette.bg1 }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine     { CursorColumn }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-    Directory      { gui = "bold" }, -- Directory names (and other special names in listings)
+    Directory      { bold = true }, -- Directory names (and other special names in listings)
     DiffAdd        { bg = palette.gr9 }, -- Diff mode: Added line |diff.txt|
     DiffChange     { bg = palette.yl9 }, -- Diff mode: Changed line |diff.txt|
     DiffDelete     { bg = palette.er9 }, -- Diff mode: Deleted line |diff.txt|
@@ -126,30 +129,30 @@ local theme = lush(function(injected_functions)
     -- TermCursor     { }, -- Cursor in a focused terminal
     -- TermCursorNC   { }, -- Cursor in an unfocused terminal
     ErrorMsg       { fg = palette.er0 }, -- Error messages on the command line
-    -- VertSplit      { }, -- Column separating vertically split windows
-    -- Folded         { }, -- Line used for closed folds
-    LineNr         { bg = palette.bg8, fg = palette.fg0 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
-    -- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
+    VertSplit      { fg = palette.fg1 }, -- Column separating vertically split windows
+    Folded         { bg = palette.bg1 }, -- Line used for closed folds
+    LineNr         { bg = palette.bg1, fg = palette.fg0 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNrAbove    { LineNr }, -- Line number for when the 'relativenumber' option is set, above the cursor line
+    LineNrBelow    { LineNr }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     FoldColumn     { LineNr }, -- 'foldcolumn'
     SignColumn     { LineNr }, -- Column where |signs| are displayed
     IncSearch      { CurSearch }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute     { bg = palette.sr9, fg = palette.sr0 }, -- |:substitute| replacement text highlighting
-    CursorLineNr   { LineNr }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLineNr   { bg = palette.bg1, fg = palette.fg0, italic = true, bold = true }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
     -- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    -- ModeMsg        { }, -- 'showmode' message (e.g., "-- INSERT -- ")
-    -- MsgArea        { }, -- Area for messages and cmdline
-    -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-    -- MoreMsg        { }, -- |more-prompt|
+    ModeMsg        { fg = palette.pi1 }, -- 'showmode' message (e.g., "-- INSERT -- ")
+    MsgArea        { ModeMsg }, -- Area for messages and cmdline
+    MsgSeparator   { ModeMsg }, -- Separator for scrolled messages, `msgsep` flag of 'display'
+    MoreMsg        { ModeMsg }, -- |more-prompt|
     -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    -- NormalFloat    { }, -- Normal text in floating windows.
-    -- FloatBorder    { }, -- Border of floating windows.
-    -- FloatTitle     { }, -- Title of floating windows.
-    -- NormalNC       { }, -- normal text in non-current windows
-    -- Pmenu          { }, -- Popup menu: Normal item.
-    -- PmenuSel       { }, -- Popup menu: Selected item.
+    NormalFloat    { bg = palette.bg1, fg = palette.fg0 }, -- Normal text in floating windows.
+    FloatBorder    { fg = palette.fg1 }, -- Border of floating windows.
+    FloatTitle     { fg = palette.fg0, bold = true }, -- Title of floating windows.
+    NormalNC       { Normal }, -- normal text in non-current windows
+    Pmenu          { bg = palette.bg2, fg = palette.fg0 }, -- Popup menu: Normal item.
+    PmenuSel       { bg = palette.pi0, fg = palette.bg0 }, -- Popup menu: Selected item.
     -- PmenuKind      { }, -- Popup menu: Normal item "kind"
     -- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
     -- PmenuExtra     { }, -- Popup menu: Normal item "extra text"
@@ -160,19 +163,19 @@ local theme = lush(function(injected_functions)
     QuickFixLine   { Question }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search         { bg = palette.sr1, fg = palette.bg0 }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
     -- SpecialKey     { }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
-    SpellBad       { sp = palette.er0, gui = "undercurl" }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-    SpellCap       { sp = palette.yl0, gui = "undercurl" }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-    SpellLocal     { sp = palette.gr0, gui = "undercurl" }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    SpellRare      { sp = palette.sr0, gui = "undercurl" }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-    -- StatusLine     { }, -- Status line of current window
+    SpellBad       { sp = palette.er0, undercurl = true }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+    SpellCap       { sp = palette.yl0, undercurl = true }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+    SpellLocal     { sp = palette.gr0, undercurl = true }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+    SpellRare      { sp = palette.sr0, undercurl = true }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
+    StatusLine     { bg = palette.bg2 }, -- Status line of current window
     -- StatusLineNC   { }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     -- TabLine        { }, -- Tab pages line, not active tab page label
     -- TabLineFill    { }, -- Tab pages line, where there are no labels
     -- TabLineSel     { }, -- Tab pages line, active tab page label
-    -- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
-    -- Visual         { }, -- Visual mode selection
-    -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
-    -- WarningMsg     { }, -- Warning messages
+    Title          { fg = palette.fg0, bold = true }, -- Titles for output from ":set all", ":autocmd" etc.
+    Visual         { bg = palette.bg3 }, -- Visual mode selection
+    VisualNOS      { Visual }, -- Visual mode selection when vim is "Not Owning the Selection".
+    WarningMsg     { fg = palette.yl0 }, -- Warning messages
     -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- Winseparator   { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     -- WildMenu       { }, -- Current match in 'wildmenu' completion
@@ -187,45 +190,45 @@ local theme = lush(function(injected_functions)
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = palette.bg9, gui = "italic" }, -- Any comment
+    Comment        { fg = palette.bg2, italic = true }, -- Any comment
 
     Constant       { fg = palette.gp1 }, -- (*) Any constant
-    String         { fg = palette.gb0, gui = "italic" }, --   A string constant: "this is a string"
+    String         { fg = palette.gb0, italic= true }, --   A string constant: "this is a string"
     Character      { fg = palette.gb1, gui = "italic" }, --   A character constant: 'c', '\n'
     Number         { fg = palette.gp0 }, --   A number constant: 234, 0xff
     Boolean        { Constant }, --   A boolean constant: TRUE, false
     Float          { Number }, --   A floating point constant: 2.3e10
 
-    Identifier     { Normal }, -- (*) Any variable name
+    Identifier     { fg = palette.fg0 }, -- (*) Any variable name
     Function       { fg = palette.fg9 }, --   Function name (also: methods for classes)
 
-    Statement      { Normal }, -- (*) Any statement
-    Repeat         { fg = palette.pi0 }, --   for, do, while, etc.
-    Conditional    { fg = palette.pi1 }, --   if, then, else, endif, switch, etc.
-    Label          { fg = palette.pi2 }, --   case, default, etc.
+    Statement      { fg = palette.pi1 }, -- (*) Any statement
+    Repeat         { fg = palette.pi1 }, --   for, do, while, etc.
+    Conditional    { fg = palette.pi0 }, --   if, then, else, endif, switch, etc.
+    Label          { fg = palette.pi1 }, --   case, default, etc.
     Operator       { Repeat }, --   "sizeof", "+", "*", etc.
     Keyword        { Conditional }, --   any other keyword
     Exception      { Label }, --   try, catch, throw
 
-    -- PreProc        { }, -- (*) Generic Preprocessor
-    -- Include        { }, --   Preprocessor #include
-    -- Define         { }, --   Preprocessor #define
-    -- Macro          { }, --   Same as Define
-    -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
+    PreProc        { fg = palette.pi1 }, -- (*) Generic Preprocessor
+    Include        { PreProc }, --   Preprocessor #include
+    Define         { fg = palette.pi0 }, --   Preprocessor #define
+    Macro          { PreProc }, --   Same as Define
+    PreCondit      { PreProc }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type           { fg = palette.sa0 }, -- (*) int, long, char, etc.
-    StorageClass   { Type }, --   static, register, volatile, etc.
+    Type           { fg = palette.sa0, italic= true }, -- (*) int, long, char, etc.
+    StorageClass   { fg = palette.sa1 }, --   static, register, volatile, etc.
     Structure      { Type }, --   struct, union, enum, etc.
-    Typedef        { Type }, --   A typedef
+    Typedef        { StorageClass }, --   A typedef
 
     Special        { Constant }, -- (*) Any special symbol
-    -- SpecialChar    { }, --   Special character in a constant
-    -- Tag            { }, --   You can use CTRL-] on this
-    -- Delimiter      { }, --   Character that needs attention
-    -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
-    -- Debug          { }, --   Debugging statements
+    SpecialChar    { Constant }, --   Special character in a constant
+    Tag            { Constant }, --   You can use CTRL-] on this
+    Delimiter      { Constant }, --   Character that needs attention
+    SpecialComment { String }, --   Special things inside a comment (e.g. '\n')
+    Debug          { String }, --   Debugging statements
 
-    Underlined     { gui = "underline" }, -- Text that stands out, HTML links
+    Underlined     { underline = true }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
     Error          { ErrorMsg }, -- Any erroneous construct
     -- Todo           { }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
@@ -245,16 +248,16 @@ local theme = lush(function(injected_functions)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    DiagnosticError            { ErrorMsg } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticInfo             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticOk               { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticVirtualTextError { Error } , -- Used for "Error" diagnostic virtual text.
-    -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
-    -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
-    -- DiagnosticVirtualTextHint  { } , -- Used for "Hint" diagnostic virtual text.
-    -- DiagnosticVirtualTextOk    { } , -- Used for "Ok" diagnostic virtual text.
+    DiagnosticError            { fg = palette.er0 } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn             { fg = palette.yl0 } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo             { fg = palette.gb0 } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint             { fg = palette.pi0 } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticOk               { fg = palette.gr0 } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticVirtualTextError { DiagnosticError } , -- Used for "Error" diagnostic virtual text.
+    DiagnosticVirtualTextWarn  { DiagnosticWarn } , -- Used for "Warn" diagnostic virtual text.
+    DiagnosticVirtualTextInfo  { DiagnosticInfo } , -- Used for "Info" diagnostic virtual text.
+    DiagnosticVirtualTextHint  { DiagnosticHint } , -- Used for "Hint" diagnostic virtual text.
+    DiagnosticVirtualTextOk    { DiagnosticOk } , -- Used for "Ok" diagnostic virtual text.
     -- DiagnosticUnderlineError   { } , -- Used to underline "Error" diagnostics.
     -- DiagnosticUnderlineWarn    { } , -- Used to underline "Warn" diagnostics.
     -- DiagnosticUnderlineInfo    { } , -- Used to underline "Info" diagnostics.
@@ -270,6 +273,10 @@ local theme = lush(function(injected_functions)
     -- DiagnosticSignInfo         { } , -- Used for "Info" signs in sign column.
     -- DiagnosticSignHint         { } , -- Used for "Hint" signs in sign column.
     -- DiagnosticSignOk           { } , -- Used for "Ok" signs in sign column.
+
+    GitSignsAdd        { bg = palette.bg1, fg = palette.gr0 },
+    GitSignsChange     { bg = palette.bg1, fg = palette.yl0 },
+    GitSignsDelete     { bg = palette.bg1, fg = palette.er0 },
 
     -- Tree-Sitter syntax groups.
     --
@@ -296,43 +303,49 @@ local theme = lush(function(injected_functions)
     -- sym"@text.todo"         { }, -- Todo
     -- sym"@comment"           { }, -- Comment
     -- sym"@punctuation"       { }, -- Delimiter
-    -- sym"@constant"          { }, -- Constant
-    -- sym"@constant.builtin"  { }, -- Special
+    sym"@constant"          { Constant }, -- Constant
+    sym"@constant.builtin"  { Special }, -- Special
     -- sym"@constant.macro"    { }, -- Define
     -- sym"@define"            { }, -- Define
     -- sym"@macro"             { }, -- Macro
-    -- sym"@string"            { }, -- String
-    -- sym"@string.escape"     { }, -- SpecialChar
-    -- sym"@string.special"    { }, -- SpecialChar
-    -- sym"@character"         { }, -- Character
-    -- sym"@character.special" { }, -- SpecialChar
-    -- sym"@number"            { }, -- Number
-    -- sym"@boolean"           { }, -- Boolean
-    -- sym"@float"             { }, -- Float
-    -- sym"@function"          { }, -- Function
-    -- sym"@function.builtin"  { }, -- Special
-    -- sym"@function.macro"    { }, -- Macro
-    -- sym"@parameter"         { }, -- Identifier
-    -- sym"@method"            { }, -- Function
-    -- sym"@field"             { }, -- Identifier
-    -- sym"@property"          { }, -- Identifier
-    -- sym"@constructor"       { }, -- Special
-    -- sym"@conditional"       { }, -- Conditional
-    -- sym"@repeat"            { }, -- Repeat
-    -- sym"@label"             { }, -- Label
-    -- sym"@operator"          { }, -- Operator
-    -- sym"@keyword"           { }, -- Keyword
-    -- sym"@exception"         { }, -- Exception
-    -- sym"@variable"          { }, -- Identifier
+    sym"@string"            { String }, -- String
+    sym"@string.escape"     { SpecialChar }, -- SpecialChar
+    sym"@string.special"    { SpecialChar }, -- SpecialChar
+    sym"@character"         { Character }, -- Character
+    sym"@character.special" { SpecialChar }, -- SpecialChar
+    sym"@number"            { Number }, -- Number
+    sym"@boolean"           { Boolean }, -- Boolean
+    sym"@float"             { Float }, -- Float
+    sym"@function"          { Function }, -- Function
+    sym"@function.builtin"  { Special }, -- Special
+    sym"@function.macro"    { Macro }, -- Macro
+    sym"@parameter"         { fg = palette.fg1 }, -- Identifier
+    sym"@method"            { Function }, -- Function
+    sym"@field"             { fg = palette.fg1 }, -- Identifier
+    sym"@property"          { fg = palette.fg1 }, -- Identifier
+    sym"@constructor"       { Special }, -- Special
+    sym"@conditional"       { Conditional }, -- Conditional
+    sym"@repeat"            { Repeat }, -- Repeat
+    sym"@label"             { Label }, -- Label
+    sym"@operator"          { Operator }, -- Operator
+    sym"@keyword"           { Keyword }, -- Keyword
+    sym"@exception"         { Exception }, -- Exception
+    sym"@variable"          { Identifier }, -- Identifier
     sym"@type"              { Type }, -- Type
     sym"@type.definition"   { Typedef }, -- Typedef
-    -- sym"@storageclass"      { }, -- StorageClass
-    -- sym"@structure"         { }, -- Structure
+    sym"@storageclass"      { StorageClass }, -- StorageClass
+    sym"@structure"         { Structure }, -- Structure
     -- sym"@namespace"         { }, -- Identifier
-    -- sym"@include"           { }, -- Include
-    -- sym"@preproc"           { }, -- PreProc
-    -- sym"@debug"             { }, -- Debug
+    sym"@include"           { Include }, -- Include
+    sym"@preproc"           { PreProc }, -- PreProc
+    sym"@debug"             { Debug }, -- Debug
     -- sym"@tag"               { }, -- Tag
+
+    sym"@type.builtin.cpp"              { Type },
+    sym"@keyword.repeat.cpp"            { Repeat },
+    sym"@keyword.conditional.cpp"       { Conditional },
+    sym"@keyword.import.cpp"            { Include },
+    sym"@keyword.directive.define.cpp"  { Define },
 }
 end)
 
