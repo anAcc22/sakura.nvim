@@ -45,8 +45,6 @@
 local lush = require('lush')
 local hsluv = lush.hsluv
 
--- local local
-
 local dark = {
     bg0 = hsluv(310, 6, 8),
     bg1 = hsluv(310, 6, 18),
@@ -171,14 +169,14 @@ local theme = lush(function(injected_functions)
     ErrorMsg       { fg = palette.er0 }, -- Error messages on the command line
     VertSplit      { fg = palette.fg1 }, -- Column separating vertically split windows
     Folded         { bg = palette.bg1 }, -- Line used for closed folds
-    LineNr         { fg = palette.fg0 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr         { fg = palette.bg2 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     LineNrAbove    { LineNr }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     LineNrBelow    { LineNr }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     FoldColumn     { LineNr }, -- 'foldcolumn'
     SignColumn     { LineNr }, -- Column where |signs| are displayed
     IncSearch      { CurSearch }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute     { bg = palette.sr9, fg = palette.sr0 }, -- |:substitute| replacement text highlighting
-    CursorLineNr   { fg = palette.fg0, italic = true, bold = true }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLineNr   { fg = palette.fg1, italic = true, bold = true }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
     -- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -237,7 +235,7 @@ local theme = lush(function(injected_functions)
     String         { fg = palette.gb0, italic= true }, --   A string constant: "this is a string"
     Character      { fg = palette.gb1, gui = "italic" }, --   A character constant: 'c', '\n'
     Number         { fg = palette.gp0 }, --   A number constant: 234, 0xff
-    Boolean        { Constant }, --   A boolean constant: TRUE, false
+    Boolean        { Constant, bold = true }, --   A boolean constant: TRUE, false
     Float          { Number }, --   A floating point constant: 2.3e10
 
     Identifier     { fg = palette.fg0 }, -- (*) Any variable name
@@ -271,7 +269,7 @@ local theme = lush(function(injected_functions)
 
     Underlined     { underline = true }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
-    Error          { ErrorMsg }, -- Any erroneous construct
+    Error          { bg = palette.er0 }, -- Any erroneous construct
     -- Todo           { }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     -- These groups are for the native LSP client and diagnostic system. Some
