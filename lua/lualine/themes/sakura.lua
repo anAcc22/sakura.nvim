@@ -2,10 +2,9 @@ local dark = {
     bl = '#1c1a1c',
     gl = '#2e2d2f',
     gr = '#3f3b3e',
-    wi = '#ecdcdd',
 
     na = '#c5a3a9',
-    nb = '#4e4034',
+    nb = '#4e4044',
 
     ia = '#c58ea7',
     ib = '#543042',
@@ -21,7 +20,7 @@ local light = {
     gl = '#ded3d3',
     gr = '#cdbdbd',
 
-    na = '#4e4034',
+    na = '#4e4044',
     nb = '#c5a3a9',
 
     ia = '#543042',

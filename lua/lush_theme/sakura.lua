@@ -87,9 +87,9 @@ local dark = {
 }
 
 local light = {
-    bg0 = hsluv(310, 20, 90),
-    bg1 = hsluv(310, 20, 80),
-    bg2 = hsluv(310, 20, 60),
+    bg0 = hsluv(310, 12, 90),
+    bg1 = hsluv(310, 12, 80),
+    bg2 = hsluv(310, 12, 60),
 
     vs0 = hsluv(310, 15, 75),
 
@@ -98,32 +98,32 @@ local light = {
     fg8 = hsluv(0, 15, 45),
     fg9 = hsluv(0, 10, 50),
 
-    er0 = hsluv(7, 55, 40),
-    er9 = hsluv(7, 55, 60),
+    er0 = hsluv(7, 55, 45),
+    er9 = hsluv(7, 45, 50),
 
-    yl0 = hsluv(40, 40, 40),
-    yl8 = hsluv(40, 40, 50),
-    yl9 = hsluv(40, 40, 60),
+    yl0 = hsluv(40, 45, 45),
+    yl8 = hsluv(40, 45, 50),
+    yl9 = hsluv(40, 40, 55),
 
-    sr0 = hsluv(300, 40, 40),
-    sr1 = hsluv(300, 35, 50),
-    sr9 = hsluv(300, 35, 60),
+    sr0 = hsluv(300, 45, 45),
+    sr1 = hsluv(300, 45, 50),
+    sr9 = hsluv(300, 35, 55),
 
-    gr0 = hsluv(150, 35, 40),
-    gr9 = hsluv(150, 35, 60),
+    gr0 = hsluv(150, 35, 45),
+    gr9 = hsluv(150, 35, 50),
 
-    gb0 = hsluv(260, 35, 40),
+    gb0 = hsluv(260, 35, 45),
     gb1 = hsluv(260, 35, 50),
-    gb9 = hsluv(260, 35, 60),
+    gb9 = hsluv(260, 35, 55),
 
-    gp0 = hsluv(270, 50, 40),
+    gp0 = hsluv(270, 50, 45),
     gp1 = hsluv(270, 40, 50),
-    gp9 = hsluv(270, 35, 60),
+    gp9 = hsluv(270, 35, 55),
 
-    sa0 = hsluv(340, 35, 40),
-    sa1 = hsluv(340, 35, 60),
+    sa0 = hsluv(340, 40, 50),
+    sa1 = hsluv(340, 35, 55),
 
-    pi0 = hsluv(310, 15, 30),
+    pi0 = hsluv(310, 20, 45),
     pi1 = hsluv(310, 15, 50),
 }
 
