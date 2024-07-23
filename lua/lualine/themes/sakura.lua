@@ -5,32 +5,40 @@ local dark = {
 
     na = '#c5a3a9',
     nb = '#4e4044',
+    nc = '#484042',
 
     ia = '#c58ea7',
-    ib = '#543042',
+    ib = '#503942',
+    ic = '#463942',
 
     va = '#878fb9',
     vb = '#2e3448',
+    vc = '#2a3033',
 
     ca = '#9e97d0',
     cb = '#31285e',
+    cc = '#282530',
 }
 local light = {
     bl = '#ecdcdd',
     gl = '#ded3d3',
     gr = '#cdbdbd',
 
-    na = '#4e4044',
+    na = '#484042',
     nb = '#c5a3a9',
+    nc = '#e5d9df',
 
-    ia = '#543042',
+    ia = '#463942',
     ib = '#c58ea7',
+    ic = '#e5d4de',
 
-    va = '#2e3448',
+    va = '#2a3033',
     vb = '#878fb9',
+    vc = '#c7cfd9',
 
-    ca = '#31285e',
+    ca = '#282530',
     cb = '#9e97d0',
+    cc = '#cfc8e0',
 }
 local palette = dark
 if vim.o.background == "light" then
@@ -38,27 +46,27 @@ if vim.o.background == "light" then
 end
 return {
     normal = {
-        a = { bg = palette.na, fg = palette.bl, gui = "bold" },
+        a = { bg = palette.na, fg = palette.bl },
         b = { bg = palette.nb },
-        c = { bg = palette.gr },
+        c = { bg = palette.nc },
     },
     insert = {
-        a = { bg = palette.ia, fg = palette.bl, gui = "bold" },
+        a = { bg = palette.ia, fg = palette.bl },
         b = { bg = palette.ib },
-        c = { bg = palette.gr },
+        c = { bg = palette.ic },
     },
     visual = {
-        a = { bg = palette.va, fg = palette.bl, gui = "bold" },
+        a = { bg = palette.va, fg = palette.bl },
         b = { bg = palette.vb },
-        c = { bg = palette.gr },
+        c = { bg = palette.vc },
     },
     command = {
-        a = { bg = palette.ca, fg = palette.bl, gui = "bold" },
+        a = { bg = palette.ca, fg = palette.bl },
         b = { bg = palette.cb },
-        c = { bg = palette.gr },
+        c = { bg = palette.cc },
     },
     inactive = {
-        a = { bg = palette.gl, gui = "bold" },
+        a = { bg = palette.gl },
         b = { bg = palette.gl },
         c = { bg = palette.gl },
     },

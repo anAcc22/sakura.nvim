@@ -46,9 +46,10 @@ local lush = require('lush')
 local hsluv = lush.hsluv
 
 local dark = {
-    bg0 = hsluv(310, 6, 8),
-    bg1 = hsluv(310, 6, 18),
-    bg2 = hsluv(310, 6, 36),
+    bg0 = hsluv(300, 6, 8),
+    bg1 = hsluv(300, 6, 14),
+    bg2 = hsluv(300, 8, 18),
+    bg3 = hsluv(300, 8, 36),
 
     vs0 = hsluv(310, 12, 20),
 
@@ -87,9 +88,10 @@ local dark = {
 }
 
 local light = {
-    bg0 = hsluv(310, 12, 90),
-    bg1 = hsluv(310, 12, 80),
-    bg2 = hsluv(310, 12, 60),
+    bg0 = hsluv(300, 8, 90),
+    bg1 = hsluv(300, 8, 86),
+    bg2 = hsluv(300, 8, 82),
+    bg3 = hsluv(300, 8, 64),
 
     vs0 = hsluv(310, 15, 75),
 
@@ -150,13 +152,13 @@ local theme = lush(function(injected_functions)
     -- See :h highlight-groups
     --
     Normal         { bg = palette.bg0, fg = palette.fg0 }, -- Normal text
-    ColorColumn    { bg = palette.bg1 }, -- Columns set with 'colorcolumn'
+    ColorColumn    { bg = palette.bg2 }, -- Columns set with 'colorcolumn'
     Conceal        { bg = palette.bg0, fg = palette.fg0 }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor         { bg = palette.fg0, fg = palette.bg0 }, -- Character under the cursor
     CurSearch      { bg = palette.sr0, fg = palette.bg0 }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     -- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
-    CursorColumn   { bg = palette.bg1 }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorColumn   { bg = palette.bg2 }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine     { CursorColumn }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory      { bold = true }, -- Directory names (and other special names in listings)
     DiffAdd        { bg = palette.gr9 }, -- Diff mode: Added line |diff.txt|
@@ -168,8 +170,8 @@ local theme = lush(function(injected_functions)
     -- TermCursorNC   { }, -- Cursor in an unfocused terminal
     ErrorMsg       { fg = palette.er0 }, -- Error messages on the command line
     VertSplit      { fg = palette.fg1 }, -- Column separating vertically split windows
-    Folded         { bg = palette.bg1 }, -- Line used for closed folds
-    LineNr         { fg = palette.bg2 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    Folded         { bg = palette.bg2 }, -- Line used for closed folds
+    LineNr         { fg = palette.bg3 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     LineNrAbove    { LineNr }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     LineNrBelow    { LineNr }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     FoldColumn     { LineNr }, -- 'foldcolumn'
@@ -185,11 +187,11 @@ local theme = lush(function(injected_functions)
     MsgSeparator   { ModeMsg }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg        { ModeMsg }, -- |more-prompt|
     -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    NormalFloat    { bg = palette.bg1, fg = palette.fg0 }, -- Normal text in floating windows.
+    NormalFloat    { bg = palette.bg2, fg = palette.fg0 }, -- Normal text in floating windows.
     FloatBorder    { fg = palette.fg1 }, -- Border of floating windows.
     FloatTitle     { fg = palette.fg0, bold = true }, -- Title of floating windows.
     NormalNC       { Normal }, -- normal text in non-current windows
-    Pmenu          { bg = palette.bg2, fg = palette.fg0 }, -- Popup menu: Normal item.
+    Pmenu          { bg = palette.bg3, fg = palette.fg0 }, -- Popup menu: Normal item.
     PmenuSel       { bg = palette.pi0, fg = palette.bg0 }, -- Popup menu: Selected item.
     -- PmenuKind      { }, -- Popup menu: Normal item "kind"
     -- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
@@ -205,7 +207,7 @@ local theme = lush(function(injected_functions)
     SpellCap       { sp = palette.yl0, undercurl = true }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     SpellLocal     { sp = palette.gr0, undercurl = true }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     SpellRare      { sp = palette.sr0, undercurl = true }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-    StatusLine     { bg = palette.bg1 }, -- Status line of current window
+    StatusLine     { bg = palette.bg2 }, -- Status line of current window
     -- StatusLineNC   { }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     -- TabLine        { }, -- Tab pages line, not active tab page label
     -- TabLineFill    { }, -- Tab pages line, where there are no labels
@@ -229,7 +231,7 @@ local theme = lush(function(injected_functions)
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    Comment        { fg = palette.bg2, italic = true }, -- Any comment
+    Comment        { fg = palette.bg3, italic = true }, -- Any comment
 
     Constant       { fg = palette.gp1 }, -- (*) Any constant
     String         { fg = palette.gb0, italic= true }, --   A string constant: "this is a string"
@@ -313,6 +315,10 @@ local theme = lush(function(injected_functions)
     -- DiagnosticSignHint         { } , -- Used for "Hint" signs in sign column.
     -- DiagnosticSignOk           { } , -- Used for "Ok" signs in sign column.
 
+    Added            { fg = palette.gr0 },
+    Changed          { fg = palette.yl0 },
+    Removed          { fg = palette.er0 },
+
     GitSignsAdd          { fg = palette.gr0 },
     GitSignsChange       { fg = palette.yl0 },
     GitSignsChangedelete { fg = palette.sr0 },
@@ -333,12 +339,14 @@ local theme = lush(function(injected_functions)
     RainbowDelimiterViolet  { fg = palette.sr1 },
     RainbowDelimiterCyan    { fg = palette.fg1 },
 
-    TelescopeSelection         { bg = palette.bg1 },
+    TelescopeSelection         { bg = palette.bg2 },
     TelescopeTitle             { fg = palette.sa0, bold = true },
     TelescopeMatching          { fg = palette.sr0, },
 
     IblScope { fg = palette.sa0 },
     IblIndent { fg = palette.pi1 },
+
+    NvimTreeNormal { bg = palette.bg1 },
 
     -- Tree-Sitter syntax groups.
     --
