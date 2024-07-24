@@ -1,4 +1,4 @@
-# Sakura.nvim
+# Sakura 🌸
 
 A low-contrast pink colorscheme inspired by [zenbones](https://github.com/mcchrish/zenbones.nvim),
 [rose-pine](https://github.com/rose-pine/neovim), and [lackluster](https://github.com/slugbyte/lackluster.nvim),
@@ -18,13 +18,13 @@ built using [lush.nvim](https://github.com/rktjmp/lush.nvim).
 
 ```lua
 {
-    "https://github.com/anAcc22/sakura.nvim"
+    "anAcc22/sakura.nvim"
 }
 ```
 
 # Usage
 
 ```lua
-vim.opt.background = 'dark' -- or 'light'
-vim.cmd.colorscheme('sakura');
+vim.opt.background = "dark" -- or "light"
+vim.cmd.colorscheme("sakura");
 ```
