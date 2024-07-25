@@ -411,6 +411,12 @@ local theme = lush(function(injected_functions)
     sym"@debug"             { Debug }, -- Debug
     -- sym"@tag"               { }, -- Tag
 
+    sym"@type.builtin.typescript"        { Type },
+    sym"@keyword.repeat.typescript"      { Repeat },
+    sym"@keyword.conditional.typescript" { Conditional },
+    sym"@keyword.import.typescript"      { Define },
+    sym"@keyword.export.typescript"      { Define },
+
     sym"@type.builtin.cpp"              { Type },
     sym"@keyword.repeat.cpp"            { Repeat },
     sym"@keyword.conditional.cpp"       { Conditional },
