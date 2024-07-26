@@ -52,6 +52,7 @@ local dark = {
     bg3 = hsluv(300, 8, 36),
 
     vs0 = hsluv(310, 12, 20),
+    vs1 = hsluv(310, 6, 12),
 
     fg0 = hsluv(0, 25, 80),
     fg1 = hsluv(0, 25, 70),
@@ -95,6 +96,7 @@ local light = {
     bg3 = hsluv(300, 8, 64),
 
     vs0 = hsluv(310, 15, 75),
+    vs1 = hsluv(310, 5, 75),
 
     fg0 = hsluv(0, 25, 35),
     fg1 = hsluv(0, 25, 40),
@@ -345,10 +347,13 @@ local theme = lush(function(injected_functions)
     TelescopeTitle             { fg = palette.sa0, bold = true },
     TelescopeMatching          { fg = palette.sr0, },
 
+    LeapLabel { bg = palette.sa1, fg = palette.bg0, bold = true },
+
     IblScope { fg = palette.sa0 },
     IblIndent { fg = palette.pi1 },
 
-    NvimTreeNormal { bg = palette.bg1 },
+    NvimTreeNormal     { bg = palette.vs1 },
+    NvimTreeFolderIcon { fg = palette.pi0 },
 
     -- Tree-Sitter syntax groups.
     --
