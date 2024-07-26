@@ -82,6 +82,7 @@ local dark = {
 
     sa0 = hsluv(340, 35, 65),
     sa1 = hsluv(340, 35, 55),
+    sa2 = hsluv(340, 30, 45),
 
     pi0 = hsluv(310, 15, 60),
     pi1 = hsluv(310, 15, 45),
@@ -124,6 +125,7 @@ local light = {
 
     sa0 = hsluv(340, 40, 50),
     sa1 = hsluv(340, 35, 55),
+    sa2 = hsluv(340, 30, 60),
 
     pi0 = hsluv(310, 20, 45),
     pi1 = hsluv(310, 15, 50),
@@ -247,7 +249,7 @@ local theme = lush(function(injected_functions)
     Repeat         { fg = palette.pi1 }, --   for, do, while, etc.
     Conditional    { fg = palette.pi0 }, --   if, then, else, endif, switch, etc.
     Label          { fg = palette.pi1, bold = true }, --   case, default, etc.
-    Operator       { Repeat }, --   "sizeof", "+", "*", etc.
+    Operator       { fg = palette.sa2 }, --   "sizeof", "+", "*", etc.
     Keyword        { Conditional }, --   any other keyword
     Exception      { Label }, --   try, catch, throw
 
@@ -416,12 +418,14 @@ local theme = lush(function(injected_functions)
     sym"@keyword.conditional.typescript" { Conditional },
     sym"@keyword.import.typescript"      { Define },
     sym"@keyword.export.typescript"      { Define },
+    sym"@operator.typescript"            { Operator },
 
-    sym"@type.builtin.cpp"              { Type },
-    sym"@keyword.repeat.cpp"            { Repeat },
-    sym"@keyword.conditional.cpp"       { Conditional },
-    sym"@keyword.import.cpp"            { Include },
-    sym"@keyword.directive.define.cpp"  { Define },
+    sym"@type.builtin.cpp"             { Type },
+    sym"@keyword.repeat.cpp"           { Repeat },
+    sym"@keyword.conditional.cpp"      { Conditional },
+    sym"@keyword.import.cpp"           { Include },
+    sym"@keyword.directive.define.cpp" { Define },
+    sym"@operator.cpp"                 { Operator },
 }
 end)
 
