@@ -96,7 +96,7 @@ local light = {
     bg3 = hsluv(300, 8, 64),
 
     vs0 = hsluv(310, 15, 75),
-    vs1 = hsluv(310, 5, 75),
+    vs1 = hsluv(310, 5, 85),
 
     fg0 = hsluv(0, 25, 35),
     fg1 = hsluv(0, 25, 40),
