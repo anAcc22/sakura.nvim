@@ -104,18 +104,18 @@ local light = {
     fg9 = hsluv(0, 10, 50),
 
     er0 = hsluv(7, 55, 45),
-    er9 = hsluv(7, 45, 50),
+    er9 = hsluv(7, 45, 70),
 
     yl0 = hsluv(40, 45, 45),
-    yl8 = hsluv(40, 45, 50),
-    yl9 = hsluv(40, 40, 55),
+    yl8 = hsluv(40, 45, 70),
+    yl9 = hsluv(40, 40, 75),
 
     sr0 = hsluv(300, 45, 45),
     sr1 = hsluv(300, 45, 50),
     sr9 = hsluv(300, 35, 55),
 
     gr0 = hsluv(150, 35, 45),
-    gr9 = hsluv(150, 35, 50),
+    gr9 = hsluv(150, 35, 70),
 
     gb0 = hsluv(260, 35, 45),
     gb1 = hsluv(260, 35, 50),
@@ -275,7 +275,7 @@ local theme = lush(function(injected_functions)
 
     Underlined     { underline = true }, -- Text that stands out, HTML links
     -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
-    Error          { bg = palette.er0 }, -- Any erroneous construct
+    Error          { bg = palette.er0, fg = palette.vs1 }, -- Any erroneous construct
     -- Todo           { }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     -- These groups are for the native LSP client and diagnostic system. Some
