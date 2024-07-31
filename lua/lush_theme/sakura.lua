@@ -352,6 +352,8 @@ local theme = lush(function(injected_functions)
     IblScope { fg = palette.sa0 },
     IblIndent { fg = palette.pi1 },
 
+    MarkviewLayer { bg = palette.gp9 },
+
     NvimTreeNormal     { bg = palette.vs1 },
     NvimTreeFolderIcon { fg = palette.pi0 },
 
