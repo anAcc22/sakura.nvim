@@ -436,6 +436,15 @@ local theme = lush(function(injected_functions)
     sym"@keyword.import.cpp"           { Include },
     sym"@keyword.directive.define.cpp" { Define },
     sym"@operator.cpp"                 { Operator },
+
+    sym"@neorg.todo_items.done.norg"      { fg = palette.gr0, bold = true },
+    sym"@neorg.todo_items.undone.norg"    { fg = palette.er0, bold = true },
+    sym"@neorg.todo_items.pending.norg"   { fg = palette.sa0, bold = true },
+    sym"@neorg.todo_items.on_hold.norg"   { fg = palette.gp0, bold = true },
+    sym"@neorg.todo_items.uncertain.norg" { fg = palette.yl0, bold = true },
+    sym"@neorg.todo_items.cancelled.norg" { fg = palette.pi1, bold = true },
+    sym"@neorg.todo_items.urgent.norg"    { fg = palette.sr0, bold = true },
+    sym"@neorg.todo_items.recurring.norg" { fg = palette.gb0, bold = true },
 }
 end)
 
