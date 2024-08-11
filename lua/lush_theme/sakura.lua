@@ -437,6 +437,7 @@ local theme = lush(function(injected_functions)
     sym"@keyword.directive.define.cpp" { Define },
     sym"@operator.cpp"                 { Operator },
 
+    sym"@neorg.definitions.prefix.norg"   { fg = palette.fg9, bold = true },
     sym"@neorg.todo_items.done.norg"      { fg = palette.gr0, bold = true },
     sym"@neorg.todo_items.undone.norg"    { fg = palette.er0, bold = true },
     sym"@neorg.todo_items.pending.norg"   { fg = palette.sa0, bold = true },
