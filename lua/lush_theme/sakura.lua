@@ -90,8 +90,8 @@ local dark = {
 }
 
 local light = {
-    bg0 = hsluv(300, 8, 90),
-    bg1 = hsluv(300, 8, 86),
+    bg0 = hsluv(300, 6, 90),
+    bg1 = hsluv(300, 6, 86),
     bg2 = hsluv(300, 8, 82),
     bg3 = hsluv(300, 8, 64),
 
@@ -328,12 +328,19 @@ local theme = lush(function(injected_functions)
     GitSignsChangedelete { fg = palette.sr0 },
     GitSignsDelete       { fg = palette.er0 },
 
-    TodoBgNOTE { fg = palette.pi0, bold = true },
-    TodoBgTODO { fg = palette.sa0, bold = true },
-    TodoBgPERF { fg = palette.gr0, bold = true },
-    TodoBgHACK { fg = palette.gb0, bold = true },
-    TodoBgWARN { fg = palette.er0, bold = true },
-    TodoBgFIX  { fg = palette.yl0, bold = true },
+    TodoBgNOTE { bg = palette.pi0, bold = true },
+    TodoBgTODO { bg = palette.sa0, bold = true },
+    TodoBgPERF { bg = palette.gr0, bold = true },
+    TodoBgHACK { bg = palette.gb0, bold = true },
+    TodoBgWARN { bg = palette.er0, bold = true },
+    TodoBgFIX  { bg = palette.yl0, bold = true },
+
+    TodoFgNOTE { fg = palette.pi0, bold = true },
+    TodoFgTODO { fg = palette.sa0, bold = true },
+    TodoFgPERF { fg = palette.gr0, bold = true },
+    TodoFgHACK { fg = palette.gb0, bold = true },
+    TodoFgWARN { fg = palette.er0, bold = true },
+    TodoFgFIX  { fg = palette.yl0, bold = true },
 
     RainbowDelimiterRed     { fg = palette.fg9 },
     RainbowDelimiterYellow  { fg = palette.fg8 },
