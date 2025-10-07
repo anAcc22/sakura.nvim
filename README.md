@@ -28,3 +28,27 @@ return {
     end
 }
 ```
+
+Plugin spec for [Nuwa.nvim](https://github.com/alyxshang/nuwa.nvim)
+
+```lua
+-- Installing the package.
+nuwa.installPackage(
+  "https://github.com",
+  "rktjmp",
+  "lush.nvim"
+)
+
+-- Installing the package.
+nuwa.installPackage(
+  "https://github.com",
+  "anAcc22",
+  "sakura.nvim"
+)
+
+-- Setting the background.
+vim.opt.background = "dark" -- or "light"
+
+-- Setting the colorscheme.
+vim.cmd.colorscheme("sakura")
+```
