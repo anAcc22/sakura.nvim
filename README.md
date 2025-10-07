@@ -16,7 +16,7 @@ built using [lush.nvim](https://github.com/rktjmp/lush.nvim).
 
 ## [lazy.nvim](https://github.com/folke/lazy.nvim)
 
-Plugin spec for [LazyVim](https://github.com/folke/lazy.nvim)
+Plugin spec for [LazyVim](https://github.com/folke/lazy.nvim):
 
 ```lua
 return {
@@ -27,4 +27,28 @@ return {
         vim.cmd('colorscheme sakura') -- sets the colorscheme
     end
 }
+```
+
+Plugin spec for [Nuwa.nvim](https://github.com/alyxshang/nuwa.nvim):
+
+```lua
+-- Installing the package.
+nuwa.installPackage(
+  "https://github.com",
+  "rktjmp",
+  "lush.nvim"
+)
+
+-- Installing the package.
+nuwa.installPackage(
+  "https://github.com",
+  "anAcc22",
+  "sakura.nvim"
+)
+
+-- Setting the background.
+vim.opt.background = "dark" -- or "light"
+
+-- Setting the colorscheme.
+vim.cmd.colorscheme("sakura")
 ```
