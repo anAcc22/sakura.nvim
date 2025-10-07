@@ -16,7 +16,7 @@ built using [lush.nvim](https://github.com/rktjmp/lush.nvim).
 
 ## [lazy.nvim](https://github.com/folke/lazy.nvim)
 
-Plugin spec for [LazyVim](https://github.com/folke/lazy.nvim)
+Plugin spec for [LazyVim](https://github.com/folke/lazy.nvim):
 
 ```lua
 return {
@@ -29,7 +29,7 @@ return {
 }
 ```
 
-Plugin spec for [Nuwa.nvim](https://github.com/alyxshang/nuwa.nvim)
+Plugin spec for [Nuwa.nvim](https://github.com/alyxshang/nuwa.nvim):
 
 ```lua
 -- Installing the package.
