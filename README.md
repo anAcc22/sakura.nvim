@@ -29,7 +29,7 @@ return {
 }
 ```
 
-Plugin spec for [Nuwa.nvim](https://source.alyxshang.boo/alyxshang/nuwa.nvim):
+Plugin spec for [Nuwa.nvim](https://nuwa.alyxshang.boo):
 
 ```lua
 -- Installing the package.
