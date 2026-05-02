@@ -29,6 +29,8 @@ return {
 }
 ```
 
+## [Nuwa.nvim](https://nuwa.alyxshang.boo)
+
 Plugin spec for [Nuwa.nvim](https://nuwa.alyxshang.boo):
 
 ```lua
