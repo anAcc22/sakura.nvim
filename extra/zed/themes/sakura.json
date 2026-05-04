@@ -1,0 +1,132 @@
+{
+  "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
+  "name": "Sakura",
+  "author": "anAcc22 (adapted for Zed)",
+  "themes": [
+    {
+      "name": "Sakura",
+      "appearance": "dark",
+      "style": {
+        "border": "#313131",
+        "border.variant": "#313131",
+        "border.focused": "#e87a90",
+        "border.selected": "#313131",
+        "border.transparent": null,
+        "border.disabled": "#161616",
+        "elevated_surface.background": "#0e0e0e",
+        "surface.background": "#222222",
+        "background": "#161616",
+        "element.background": "#313131",
+        "element.hover": "#313131",
+        "element.active": "#e87a90",
+        "element.selected": "#313131",
+        "element.disabled": "#161616",
+        "drop_target.background": "#313131",
+        "ghost_element.background": null,
+        "ghost_element.hover": "#222222",
+        "ghost_element.active": "#423f46",
+        "ghost_element.selected": "#313131",
+        "ghost_element.disabled": null,
+        "text": "#cfc3ca",
+        "text.muted": "#a89a9f",
+        "text.placeholder": "#8a7c81",
+        "text.disabled": "#6b6066",
+        "text.accent": "#d5a8d9",
+        "icon": "#a89a9f",
+        "icon.muted": "#6b6066",
+        "icon.disabled": "#4a4450",
+        "icon.placeholder": "#6b6066",
+        "icon.accent": "#d997d9",
+        "status_bar.background": "#0e0e0e",
+        "title_bar.background": "#0e0e0e",
+        "toolbar.background": "#161616",
+        "tab_bar.background": "#0e0e0e",
+        "tab.inactive_background": "#0e0e0e",
+        "tab.active_background": "#161616",
+        "search.match_background": "#313131",
+        "panel.background": "#0e0e0e",
+        "panel.focused_border": "#313131",
+        "pane_group.border": "#0e0e0e",
+        "scrollbar.thumb.background": "#313131",
+        "scrollbar.thumb.hover_background": "#313131",
+        "scrollbar.thumb.border": "#161616",
+        "scrollbar.track.background": "#161616",
+        "scrollbar.track.border": "#161616",
+        "editor.background": "#161616",
+        "editor.foreground": "#cfc3ca",
+        "editor.active_line.background": "#222222",
+        "editor.highlighted_line.background": "#222222",
+        "editor.line_number": "#6b6066",
+        "editor.active_line_number": "#ca6d80",
+        "editor.invisible": "#313131",
+        "editor.wrap_guide": "#313131",
+        "editor.active_wrap_guide": "#313131",
+        "editor.gutter.background": "#161616",
+        "editor.indent_guide": "#313131",
+        "editor.indent_guide_active": "#6b6066",
+        "error": "#c96c7f",
+        "error.background": "#c96c7f",
+        "warning": "#bb8c6e",
+        "warning.background": "#bb8c6e",
+        "success": "#6f9354",
+        "success.background": "#6f9354",
+        "selection": "#313131",
+        "terminal.background": "#161616",
+        "terminal.foreground": "#cfc3ca",
+        "syntax": {
+          "comment": {
+            "color": "#5f5567",
+            "font_style": "italic"
+          },
+          "string": {
+            "color": "#868eb8"
+          },
+          "number": {
+            "color": "#8a85b8"
+          },
+          "keyword": {
+            "color": "#957d96"
+          },
+          "function": {
+            "color": "#8a7c81"
+          },
+          "variable": {
+            "color": "#cfc3ca",
+            "font_style": "italic",
+            "font_weight": 800
+          },
+          "type": {
+            "color": "#c48da6",
+            "font_weight": 800,
+            "font_style": "italic"
+          },
+          "boolean": {
+            "color": "#736e9d",
+            "font_weight": 800
+          }
+        },
+        "players": [
+          {
+            "cursor": "#ffffff",
+            "selection": "#362e35",
+            "background": "#ffffff"
+          }
+        ],
+        "hint": "#5f5567",
+        "panel.overlay_background": "#222222",
+        "panel.overlay_hover": "#161616",
+        "pane.focused_border": "#e87a90",
+        "link_text.hover": "#d5a8d9",
+        "editor.subheader.background": "#222222",
+        "minimap.thumb.background": "#313131",
+        "minimap.thumb.hover_background": "#313131",
+        "minimap.thumb.border": "#161616",
+        "version_control.added": "#6f9354",
+        "version_control.deleted": "#c96c7f",
+        "version_control.modified": "#bb8c6e"
+      }
+    }
+  ],
+  "isUserGenerated": true,
+  "description": "Sakura theme"
+}
