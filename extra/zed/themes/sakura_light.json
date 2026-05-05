@@ -1,0 +1,132 @@
+{
+  "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
+  "name": "Sakura Light",
+  "author": "anAcc22 (adapted for Zed)",
+  "themes": [
+    {
+      "name": "Sakura Light",
+      "appearance": "light",
+      "style": {
+        "border": "#e1dae0",
+        "border.variant": "#e1dae0",
+        "border.focused": "#bd4473",
+        "border.selected": "#e1dae0",
+        "border.transparent": null,
+        "border.disabled": "#f6f0f4",
+        "elevated_surface.background": "#ffffff",
+        "surface.background": "#efe9ed",
+        "background": "#f6f0f4",
+        "element.background": "#e1dae0",
+        "element.hover": "#e1dae0",
+        "element.active": "#bd4473",
+        "element.selected": "#e1dae0",
+        "element.disabled": "#f6f0f4",
+        "drop_target.background": "#e1dae0",
+        "ghost_element.background": null,
+        "ghost_element.hover": "#e1dae0",
+        "ghost_element.active": "#e1dae0",
+        "ghost_element.selected": "#e1dae0",
+        "ghost_element.disabled": null,
+        "text": "#4d3d46",
+        "text.muted": "#66555f",
+        "text.placeholder": "#806f79",
+        "text.disabled": "#94848e",
+        "text.accent": "#9e4a88",
+        "icon": "#66555f",
+        "icon.muted": "#94848e",
+        "icon.disabled": "#a69fa5",
+        "icon.placeholder": "#94848e",
+        "icon.accent": "#ab5995",
+        "status_bar.background": "#ffffff",
+        "title_bar.background": "#ffffff",
+        "toolbar.background": "#f6f0f4",
+        "tab_bar.background": "#ffffff",
+        "tab.inactive_background": "#ffffff",
+        "tab.active_background": "#f6f0f4",
+        "search.match_background": "#e1dae0",
+        "panel.background": "#ffffff",
+        "panel.focused_border": "#e1dae0",
+        "pane_group.border": "#ffffff",
+        "scrollbar.thumb.background": "#e1dae0",
+        "scrollbar.thumb.hover_background": "#e1dae0",
+        "scrollbar.thumb.border": "#f6f0f4",
+        "scrollbar.track.background": "#f6f0f4",
+        "scrollbar.track.border": "#f6f0f4",
+        "editor.background": "#f6f0f4",
+        "editor.foreground": "#4d3d46",
+        "editor.active_line.background": "#efe9ed",
+        "editor.highlighted_line.background": "#efe9ed",
+        "editor.line_number": "#94848e",
+        "editor.active_line_number": "#c25781",
+        "editor.invisible": "#e1dae0",
+        "editor.wrap_guide": "#e1dae0",
+        "editor.active_wrap_guide": "#e1dae0",
+        "editor.gutter.background": "#f6f0f4",
+        "editor.indent_guide": "#e1dae0",
+        "editor.indent_guide_active": "#94848e",
+        "error": "#c44754",
+        "error.background": "#c44754",
+        "warning": "#a8783e",
+        "warning.background": "#a8783e",
+        "success": "#3f805a",
+        "success.background": "#3f805a",
+        "selection": "#e1dae0",
+        "terminal.background": "#f6f0f4",
+        "terminal.foreground": "#4d3d46",
+        "syntax": {
+          "comment": {
+            "color": "#a69fa5",
+            "font_style": "italic"
+          },
+          "string": {
+            "color": "#455db3"
+          },
+          "number": {
+            "color": "#774ac2"
+          },
+          "keyword": {
+            "color": "#ab5995"
+          },
+          "function": {
+            "color": "#806f79"
+          },
+          "variable": {
+            "color": "#4d3d46",
+            "font_style": "italic",
+            "font_weight": 800
+          },
+          "type": {
+            "color": "#bd4473",
+            "font_weight": 800,
+            "font_style": "italic"
+          },
+          "boolean": {
+            "color": "#865bcc",
+            "font_weight": 800
+          }
+        },
+        "players": [
+          {
+            "cursor": "#4d3d46",
+            "selection": "#e1dae0",
+            "background": "#f6f0f4"
+          }
+        ],
+        "hint": "#a69fa5",
+        "panel.overlay_background": "#efe9ed",
+        "panel.overlay_hover": "#f6f0f4",
+        "pane.focused_border": "#bd4473",
+        "link_text.hover": "#9e4a88",
+        "editor.subheader.background": "#efe9ed",
+        "minimap.thumb.background": "#e1dae0",
+        "minimap.thumb.hover_background": "#e1dae0",
+        "minimap.thumb.border": "#f6f0f4",
+        "version_control.added": "#3f805a",
+        "version_control.deleted": "#c44754",
+        "version_control.modified": "#a8783e"
+      }
+    }
+  ],
+  "isUserGenerated": true,
+  "description": "Sakura Light theme"
+}
