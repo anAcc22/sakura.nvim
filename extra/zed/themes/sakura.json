@@ -123,7 +123,10 @@
         "minimap.thumb.border": "#161616",
         "version_control.added": "#6f9354",
         "version_control.deleted": "#c96c7f",
-        "version_control.modified": "#bb8c6e"
+        "version_control.modified": "#bb8c6e",
+        "created": "#6f9354",
+        "deleted": "#c96c7f",
+        "modified": "#bb8c6e"
       }
     }
   ],
